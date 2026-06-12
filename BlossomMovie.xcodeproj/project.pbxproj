@@ -8,6 +8,7 @@
 
 /* Begin PBXFileReference section */
 		AAD9C16E2FDBDFBB00F74707 /* BlossomMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlossomMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD9C17D2FDBE00A00F74707 /* BlossomMovie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BlossomMovie.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -42,6 +43,11 @@
 			children = (
 				AAD9C16E2FDBDFBB00F74707 /* BlossomMovie.app */,
 			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAD9C1802FDBE00A00F74707 /* Products */ = {
+			isa = PBXGroup;
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -97,6 +103,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = AAD9C16F2FDBDFBB00F74707 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AAD9C1802FDBE00A00F74707 /* Products */;
+					ProjectRef = AAD9C17D2FDBE00A00F74707 /* BlossomMovie.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AAD9C16D2FDBDFBB00F74707 /* BlossomMovie */,
