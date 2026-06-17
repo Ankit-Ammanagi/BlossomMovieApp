@@ -30,6 +30,19 @@ struct TitleDetailView: View {
                         
                         Text(title.overview ??  "")
                             .padding(.top, 1)
+                        
+                        HStack {
+                            Spacer()
+                            
+                            Button {
+                                //
+                            } label: {
+                                Text(Constants.downloadString)
+                                    .ghostButton()
+                            }
+
+                            Spacer()
+                        }
                     }
                     .padding(.horizontal, 10)
                 }

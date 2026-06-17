@@ -19,11 +19,17 @@ struct Constants {
     static let trendingTVString = "Trending TV"
     static let topRatedMovieString = "Top Rated Movies"
     static let topRatedTVString = "Top Rated TV"
+    static let movieSearchString = "Movie Search"
+    static let tvSearchString = "TV Search"
+    static let moviePlaceholderString = "Search for a Movies"
+    static let tvPlaceholderString = "Search for a TV Show"
     
     static let homeImageIcon = "house"
     static let searchImageIcon = "magnifyingglass"
     static let downloadImageIcon = "arrow.down.to.line"
     static let upcommingImageIcon = "play.circle"
+    static let movieIconString = "movieclapper"
+    static let tvIconString = "tv.fill"
     
     static let testTitleURL = "https://image.tmdb.org/t/p/w500/nnl6OWkyPpuMm595hmAxNW3rZFn.jpg"
     static let testTitleURL2 = "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg"

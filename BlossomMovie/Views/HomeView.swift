@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     let viewModel = ViewModel()
     @State private var titleDetailPath = NavigationPath()
+    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         NavigationStack(path: $titleDetailPath) {

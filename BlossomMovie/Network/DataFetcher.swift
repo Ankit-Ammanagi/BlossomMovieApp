@@ -18,8 +18,8 @@ struct DataFetcher {
     //https://api.themoviedb.org/3/movie/upcoming?api_key=YOUR_API_KEY
     //https://api.themoviedb.org/3/search/movie?api_key=YourKey&query=PulpFiction
     
-    func fetchTitles(for media: String, by type: String) async throws -> [Title] {
-        let fetchTitlesURL = try buildURL(media: media, type: type)
+    func fetchTitles(for media: String, by type: String, with title: String? = nil) async throws -> [Title] {
+        let fetchTitlesURL = try buildURL(media: media, type: type, searchQuery: title)
         
         guard let fetchTitlesURL = fetchTitlesURL else {
             throw NetworkError.urlBuildFailed
@@ -68,7 +68,7 @@ struct DataFetcher {
         return try decoder.decode(type, from: data)
     }
     
-    private func buildURL(media: String, type: String) throws -> URL? {
+    private func buildURL(media: String, type: String, searchQuery: String? = nil) throws -> URL? {
         guard let baseURL = tmdbBaseURL, let apiKey = tmdbAPIKey else {
             throw NetworkError.missingConfig
         }
@@ -79,15 +79,23 @@ struct DataFetcher {
             path = "3/\(type)/\(media)/day"
         } else if type == "top_rated" || type == "upcoming" {
             path = "3/\(media)/\(type)"
+        } else if type == "search" {
+            path = "3/\(type)/\(media)"
         } else {
             throw NetworkError.urlBuildFailed
         }
         
+        var queryItems = [
+            URLQueryItem(name:"api_key", value: apiKey)
+        ]
+        
+        if let searchQuery = searchQuery {
+            queryItems.append(URLQueryItem(name:"query", value: searchQuery))
+        }
+        
         guard let url = URL(string: baseURL)?
             .appending(path: path)
-            .appending(queryItems: [
-                URLQueryItem(name:"api_key", value: apiKey)
-            ]) else {
+            .appending(queryItems: queryItems) else {
                 throw NetworkError.urlBuildFailed
             }
         
