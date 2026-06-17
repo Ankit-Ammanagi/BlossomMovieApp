@@ -17,6 +17,7 @@ import Foundation
     
     private(set) var homeStatus: FetchStatus = .notStarted
     private(set) var videoIdStatus: FetchStatus = .notStarted
+    private(set) var upcomingStatus: FetchStatus = .notStarted
     
     private let dataFetcher = DataFetcher()
     
@@ -24,6 +25,7 @@ import Foundation
     @ObservationIgnored var trendingTVShows: [Title] = []
     @ObservationIgnored var topRatedMovies: [Title] = []
     @ObservationIgnored var topRatedTVShows: [Title] = []
+    @ObservationIgnored var upcomingMovies: [Title] = []
     @ObservationIgnored var heroTitle: Title = Title.previewTitles[0]
     @ObservationIgnored var videoId: String = ""
     
@@ -65,6 +67,18 @@ import Foundation
         } catch {
             print(error)
             videoIdStatus = .failed(underlyingError: error)
+        }
+    }
+    
+    func getUpcomingMovies() async {
+        upcomingStatus = .fetching
+        
+        do {
+            upcomingMovies = try await dataFetcher.fetchTitles(for: "movie", by: "upcoming")
+            upcomingStatus = .success
+        } catch {
+            print(error)
+            upcomingStatus = .failed(underlyingError: error)
         }
     }
 }
