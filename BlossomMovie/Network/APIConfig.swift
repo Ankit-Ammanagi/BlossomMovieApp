@@ -10,6 +10,9 @@ import Foundation
 struct APIConfig: Decodable {
     let tmdbBaseURL: String
     let tmdbAPIKey: String
+    let youtubeBaseURL: String
+    let youtubeSearchURL: String
+    let youtubeAPIKey: String
     
     static let shared: APIConfig? = {
         do {

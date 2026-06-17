@@ -16,16 +16,21 @@ import Foundation
     }
     
     private(set) var homeStatus: FetchStatus = .notStarted
+    private(set) var videoIdStatus: FetchStatus = .notStarted
+    
     private let dataFetcher = DataFetcher()
-    var trendingMovies: [Title] = []
-    var trendingTVShows: [Title] = []
-    var topRatedMovies: [Title] = []
-    var topRatedTVShows: [Title] = []
+    
+    @ObservationIgnored var trendingMovies: [Title] = []
+    @ObservationIgnored var trendingTVShows: [Title] = []
+    @ObservationIgnored var topRatedMovies: [Title] = []
+    @ObservationIgnored var topRatedTVShows: [Title] = []
+    @ObservationIgnored var heroTitle: Title = Title.previewTitles[0]
+    @ObservationIgnored var videoId: String = ""
     
     func getTitles() async {
         homeStatus = .fetching
         
-        if trendingMovies.isEmpty {
+        if trendingMovies.isEmpty || trendingTVShows.isEmpty || topRatedMovies.isEmpty || topRatedTVShows.isEmpty {
             do {
                 async let tMovies = dataFetcher.fetchTitles(for: "movie", by: "trending")
                 async let tTVShows = dataFetcher.fetchTitles(for: "tv", by: "trending")
@@ -37,6 +42,10 @@ import Foundation
                 topRatedMovies = try await trMovies
                 topRatedTVShows = try await trTVShows
                 
+                if let title = trendingMovies.randomElement() {
+                    heroTitle = title
+                }
+                
                 homeStatus = .success
             } catch {
                 print(error)
@@ -44,6 +53,18 @@ import Foundation
             }
         } else {
             homeStatus = .success
+        }
+    }
+    
+    func getVideoId(for title: String) async {
+        videoIdStatus = .fetching
+        
+        do {
+            videoId = try await dataFetcher.fetchVideoId(for: title)
+            videoIdStatus = .success
+        } catch {
+            print(error)
+            videoIdStatus = .failed(underlyingError: error)
         }
     }
 }
