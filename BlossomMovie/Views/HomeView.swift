@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     let viewModel = ViewModel()
@@ -44,7 +45,6 @@ struct HomeView: View {
                             
                             HStack {
                                 Button {
-                                    // Action for Play button
                                     titleDetailPath.append(viewModel.heroTitle)
                                 } label: {
                                     Text(Constants.playString)
@@ -52,7 +52,8 @@ struct HomeView: View {
                                 }
                                 
                                 Button {
-                                    // Action for Download button
+                                    modelContext.insert(viewModel.heroTitle)
+                                    try? modelContext.save()
                                 } label: {
                                     Text(Constants.downloadString)
                                         .ghostButton()

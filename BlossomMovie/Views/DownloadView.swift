@@ -6,10 +6,22 @@
 //
 
 import SwiftUI
+import _SwiftData_SwiftUI
 
 struct DownloadView: View {
+    @Query var savedTitles : [Title]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            if savedTitles.isEmpty {
+                Text("No Downloads Available")
+                    .font(.title3)
+                    .bold()
+                    .padding()
+            } else {
+                VerticalListView(titles: savedTitles)
+            }
+        }
     }
 }
 

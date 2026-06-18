@@ -9,6 +9,7 @@
 /* Begin PBXFileReference section */
 		AA1BD01B2FE015070063DA56 /* BlossomMovie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BlossomMovie.xcodeproj; sourceTree = "<group>"; };
 		AA6755172FE2AAA900AF496E /* BlossomMovie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BlossomMovie.xcodeproj; sourceTree = "<group>"; };
+		AACA3AF62FE3C7410001673E /* BlossomMovie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BlossomMovie.xcodeproj; sourceTree = "<group>"; };
 		AAD9C16E2FDBDFBB00F74707 /* BlossomMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlossomMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD9C17D2FDBE00A00F74707 /* BlossomMovie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BlossomMovie.xcodeproj; sourceTree = "<group>"; };
 		AADBEDAA2FDD940600E6FA0C /* BlossomMovie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BlossomMovie.xcodeproj; sourceTree = "<group>"; };
@@ -40,6 +41,11 @@
 			sourceTree = "<group>";
 		};
 		AA67551B2FE2AAA900AF496E /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AACA3AFA2FE3C7410001673E /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
 			sourceTree = "<group>";
@@ -139,6 +145,10 @@
 				{
 					ProductGroup = AAD9C1802FDBE00A00F74707 /* Products */;
 					ProjectRef = AAD9C17D2FDBE00A00F74707 /* BlossomMovie.xcodeproj */;
+				},
+				{
+					ProductGroup = AACA3AFA2FE3C7410001673E /* Products */;
+					ProjectRef = AACA3AF62FE3C7410001673E /* BlossomMovie.xcodeproj */;
 				},
 				{
 					ProductGroup = AAF758872FE00E94009D1F19 /* Products */;
