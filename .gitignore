@@ -1,0 +1,3 @@
+# Ignore API Configuration Secrets
+APIConfig.json
+**/APIConfig.json
