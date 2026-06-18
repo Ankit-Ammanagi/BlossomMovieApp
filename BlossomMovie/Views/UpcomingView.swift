@@ -15,7 +15,7 @@ struct UpcomingView: View {
             GeometryReader { geo in
                 switch viewModel.upcomingStatus {
                 case .success:
-                    VerticalListView(titles: viewModel.upcomingMovies)
+                    VerticalListView(titles: viewModel.upcomingMovies, canDelete: false)
                 case .notStarted:
                     EmptyView()
                 case .fetching:

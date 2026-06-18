@@ -86,7 +86,9 @@ struct HomeView: View {
                         .padding(.horizontal, 10)
                         
                     case .failed(let error):
-                        Text("Failed to load data: \(error.localizedDescription)")
+                        Text(error.localizedDescription)
+                            .errorMessage()
+                            .frame(width: geo.size.width, height: geo.size.height)
                     }
                 }
                 .task {

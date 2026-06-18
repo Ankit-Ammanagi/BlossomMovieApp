@@ -15,6 +15,7 @@ struct TitleDetailView: View {
     }
     let viewModel = ViewModel()
     @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     
     var body: some View { 
         GeometryReader { geo in
@@ -41,6 +42,7 @@ struct TitleDetailView: View {
                                 saveTitle.title = titleName
                                 modelContext.insert(saveTitle)
                                 try? modelContext.save()
+                                dismiss()
                             } label: {
                                 Text(Constants.downloadString)
                                     .ghostButton()
